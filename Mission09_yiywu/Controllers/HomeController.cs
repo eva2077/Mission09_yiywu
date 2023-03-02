@@ -15,7 +15,7 @@ namespace Mission09_yiywu.Controllers
         //skip and take data for page number 
         public IActionResult Index(int pageNum=1)
         {
-            int pageSize = 5;
+            int pageSize = 10;
 
 
             var y = new BooksViewModel
