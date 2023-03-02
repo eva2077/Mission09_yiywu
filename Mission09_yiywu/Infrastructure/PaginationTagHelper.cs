@@ -7,7 +7,7 @@ using Mission09_yiywu.Models.ViewModels;
 
 namespace Mission09_yiywu.Infrastructure
 {
-    [HtmlTargetElement ("div", Attributes = "page-x")]
+    [HtmlTargetElement ("div", Attributes = "Page-Blah")]
     public class PaginationTagHelper : TagHelper
     {
         //Dynamically create the page links for us 
@@ -20,13 +20,13 @@ namespace Mission09_yiywu.Infrastructure
         [HtmlAttributeNotBound]
         public ViewContext vc { get; set; }
         //different 
-        public PageInfo pagex { get; set; }
+        public PageInfo PageBlah { get; set; }
         public string PageAction { get; set; }
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
             TagBuilder final = new TagBuilder("div");
-            for (int i = 1; i < pagex.TotalPages; i++)
+            for (int i = 1; i < PageBlah.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
@@ -37,6 +37,9 @@ namespace Mission09_yiywu.Infrastructure
 
             }
             tho.Content.AppendHtml(final.InnerHtml);
+
+
         }
+
     }
 }

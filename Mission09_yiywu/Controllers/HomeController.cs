@@ -32,10 +32,6 @@ namespace Mission09_yiywu.Controllers
                     CurrentPage = pageNum
                 }
             };
-            var x = repo.Books
-                .OrderBy(b => b.Title)
-                .Skip((pageNum -1)*pageSize)
-                .Take(pageSize);
             return View(y);
         }
     }
