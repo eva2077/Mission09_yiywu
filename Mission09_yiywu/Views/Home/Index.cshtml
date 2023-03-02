@@ -3,7 +3,7 @@
     ViewBag.Calc = 20 / 5;
 }
 @model BooksViewModel
-
+@*bootstrap and for look to display the book title/ description*@
 <h1>Books</h1>
 @foreach (Books b in Model.Books)
 {<div class="card card-outline-primary m-1 p-1">
@@ -28,6 +28,7 @@
         </div>
     </div>
 }
+@*bootstrap button*@
 <div Page-Blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">

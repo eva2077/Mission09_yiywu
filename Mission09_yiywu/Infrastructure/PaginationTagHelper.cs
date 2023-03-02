@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Mission09_yiywu.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace Mission09_yiywu.Infrastructure
 {
     [HtmlTargetElement ("div", Attributes = "Page-Blah")]
@@ -31,6 +32,7 @@ namespace Mission09_yiywu.Infrastructure
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
             TagBuilder final = new TagBuilder("div");
+            //get books for number of pages also bootstrap for each page
 
             for (int i = 1; i <= PageBlah.TotalPages; i++)
             {

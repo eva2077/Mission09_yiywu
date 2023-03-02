@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
+//gets info from books also makes each info required 
+
 namespace Mission09_yiywu.Models
 {
     public partial class Books
