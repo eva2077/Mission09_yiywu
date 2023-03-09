@@ -6,18 +6,33 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .bg-success {
+            --bs-bg-opacity: 1;
+            background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+        }
+    </style>
 </head>
 <body>
+
     <div class="bg-dark text-white p-2">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png?20171005153412e" width="60" height="60" >
+
         <span class="navbar-brand ml-2">AMAZON</span>
     </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-           
+           <vc:types></vc:types>
         </div>
         <div class="col-9">
         @RenderBody()
     </div>
+
     </div>
 </body>
 </html>

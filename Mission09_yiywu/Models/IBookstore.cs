@@ -2,7 +2,7 @@
 
 namespace Mission09_yiywu.Models
 {
-    public interface IBookstore
+    public interface IBookstoreRepo
     {
         IQueryable<Books> Books { get; }
     }

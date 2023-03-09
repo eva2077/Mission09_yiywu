@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Mission09_yiywu.Models
 {
-    public class EFBookstoreRepo : IBookstore
+    public class EFBookstoreRepo : IBookstoreRepo
     {
         private BookstoreContext context { get; set; }
         public EFBookstoreRepo(BookstoreContext temp)

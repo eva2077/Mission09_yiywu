@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_yiywu
 {
-    
+
     public class Startup
     {
         // This method sets called by the runtime. Use this method to add services to the container.
@@ -31,7 +31,10 @@ namespace Mission09_yiywu
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
 
             });
-            services.AddScoped<IBookstore, EFBookstoreRepo>();
+            services.AddScoped<IBookstoreRepo, EFBookstoreRepo>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
 
@@ -45,13 +48,21 @@ namespace Mission09_yiywu
 
             //corresponds to wwwroot
             app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("CategoryPage", "{BookCategory}/Page{pageNum}", new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("Paging", "Page{pageNum}", new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("type", "(BookCategory)", new { Controller = "Home", action = "Index", pageNum = 1 });
+             
+                
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
 
             });
         }
     }
 }
+    

@@ -5,28 +5,10 @@
 @model BooksViewModel
 @*bootstrap and for look to display the book title/ description*@
 <h1>Books</h1>
+
 @foreach (Books b in Model.Books)
-{<div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1"> 
-            <h4>
-                @b.Title
-                <span class="badge badge-pill badge-primary" style="float:right">
-                    <small>@b.Price.ToString("c")</small>
-                </span>
-            </h4>
-        </div>
-        <div class="card-text p-1">            
-            <ul>
-                <li>Author: @b.Author</li>
-                <li>Publisher: @b.Publisher</li>
-                <li>Isbn: @b.Isbn</li>
-                <li>Classification: @b.Classification</li>
-                <li>Category: @b.Category</li>
-                <li>Page Count: @b.PageCount</li>
-                <li>Price: @b.Price</li>
-            </ul>
-        </div>
-    </div>
+{
+    <partial name="BookSummary" model="b"/>
 }
 @*bootstrap button*@
 <div Page-Blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
