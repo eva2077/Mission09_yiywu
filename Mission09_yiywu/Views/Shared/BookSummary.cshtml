@@ -13,7 +13,7 @@
             </span>
         </h4>
     </div>
-
+    @*display the content for the main page*@
         <ul>
             <li>Author: @Model.Author</li>
             <li>Publisher: @Model.Publisher</li>
@@ -23,6 +23,7 @@
             <li>Page Count: @Model.PageCount</li>
             <li>Price: @Model.Price</li>
         </ul>
+        @*button to buy book*@
         <form method="post" asp-page="/Cart">
             <input type="hidden" asp-for="@Model.BookId" />
             <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" ? />

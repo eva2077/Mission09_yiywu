@@ -8,6 +8,7 @@ namespace Mission09_yiywu.Models
         public IList<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
         public double Price { get; private set; }
 
+        //store content for the cart info
         public void AddItem(Books book, int qty, double price)
         {
             BasketLineItem line = Items
@@ -29,6 +30,7 @@ namespace Mission09_yiywu.Models
             Price = CalcTotal();
         }
 
+        //calculate the total price
         public double CalcTotal()
         {
             return Items.Sum(x => x.Quantity * x.Price);

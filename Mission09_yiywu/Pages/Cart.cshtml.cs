@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace Mission09_yiywu.Pages
 {
+    //help navigate the routes when user adds book to cart
     public class CartModel : PageModel
     {
         private IBookstoreRepo repo { get; set; }

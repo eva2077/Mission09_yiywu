@@ -3,6 +3,7 @@
 @{
 }
 <h2>Your Basket</h2>
+@*display content for the cart page*@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -13,6 +14,7 @@
         </tr>
     </thead>
     <tbody>
+        @*show what book was chosen and price of the book*@
         @foreach(var i in Model.basket.Items)
         {
             <tr>

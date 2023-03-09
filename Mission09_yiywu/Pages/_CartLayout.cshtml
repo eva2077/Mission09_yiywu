@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
+@*css for extra credit bootstrap*@
 <style>
     body {
         background-color: lightblue;
@@ -19,12 +20,14 @@
 </style>
 <body>
     <div class="bg-dark text-white p-2">
+        @*amazon image in nav bar *@
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png?20171005153412e" width="60" height="60" >
         AMAZON
         
     </div>
     
     <div class="m-1 p-1">
+        @*link to the cart to get main content*@
         @RenderBody()
     </div>
 </body>

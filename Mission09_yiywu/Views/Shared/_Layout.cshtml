@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @*css for extra credit bootstrap*@
     <style>
         body {
             background-color: lightblue;
@@ -20,16 +21,18 @@
 <body>
 
     <div class="bg-dark text-white p-2">
-
+        @*amazon image in nav bar *@
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png?20171005153412e" width="60" height="60" >
 
         <span class="navbar-brand ml-2">AMAZON</span>
     </div>
     <div class="row m-1 p-1">
+        @*grab the category names*@
         <div id="categories" class="col-3">
            <vc:types></vc:types>
         </div>
         <div class="col-9">
+        @*link the book summary to get main content *@
         @RenderBody()
     </div>
 
