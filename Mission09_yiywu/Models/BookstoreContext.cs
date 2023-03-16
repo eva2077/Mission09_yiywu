@@ -20,7 +20,7 @@ namespace Mission09_yiywu.Models
         }
 
         public DbSet<Books> Books { get; set; }
-
+        public DbSet<Cart> Carts { get; set; }
 
     }
 }

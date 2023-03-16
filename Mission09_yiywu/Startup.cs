@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mission09_yiywu.Components;
 using Mission09_yiywu.Models;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,13 @@ namespace Mission09_yiywu
 
             });
             services.AddScoped<IBookstoreRepo, EFBookstoreRepo>();
+            services.AddScoped<ICartRepository, EFCartRepository>();
+          
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
 

@@ -11,24 +11,28 @@ namespace Mission09_yiywu.Pages
     {
         private IBookstoreRepo repo { get; set; }
 
-        public CartModel (IBookstoreRepo temp)
+        public CartModel (IBookstoreRepo temp,Basket b)
         {
             repo = temp;
+            basket= b;
         }
         public Basket basket { get; set; }
         public string ReturnUrl { get; set; }
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket")?? new Basket();
         }
         public IActionResult OnPost(int bookId, string returnUrl) 
         { 
             Books b = repo.Books.FirstOrDefault(x=> x.BookId == bookId);
-
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
+           
             basket.AddItem(b, 1, b.Price);
-            HttpContext.Session.SetJson("basket", basket);
+      
+            return RedirectToPage(new {ReturnUrl = returnUrl});
+        }
+        public IActionResult OnPostRemove( int BookId,string returnUrl)
+        {
+            basket.RemoveItem(basket.Items.First(x => x.Books.BookId == BookId).Books);
             return RedirectToPage(new {ReturnUrl = returnUrl});
         }
     }

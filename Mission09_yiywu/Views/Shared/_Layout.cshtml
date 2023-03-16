@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha512-ZYg+hQvLlM0W9C3P6vTpes5LmJ66G2EsroxDNzwD6qiulckldb29eD9I672HL2X+LH5nRhY1sQqZLJGB+aUUPg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @*css for extra credit bootstrap*@
     <style>
         body {
@@ -19,13 +20,18 @@
     </style>
 </head>
 <body>
-
-    <div class="bg-dark text-white p-2">
-        @*amazon image in nav bar *@
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png?20171005153412e" width="60" height="60" >
-
-        <span class="navbar-brand ml-2">AMAZON</span>
+     <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">Amazon</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png?20171005153412e" width="60" height="60">
+                <div class="col-6 text-right">
+                   <vc:cart-summary />
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="row m-1 p-1">
         @*grab the category names*@
         <div id="categories" class="col-3">
